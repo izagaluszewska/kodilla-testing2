@@ -106,7 +106,6 @@ public class CrudAppTestSuite {
     private void deleteTestTaskFromCrudApp(String taskName) throws InterruptedException {
         if (driver.switchTo().alert() != null) {
             Alert alert = driver.switchTo().alert();
-            String alertText = alert.getText();
             alert.accept();
         }
 
@@ -119,8 +118,8 @@ public class CrudAppTestSuite {
                         anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
                                 .getText().equals(taskName))
                 .forEach(theForm -> {
-                        WebElement deleteButton = theForm.findElement(By.xpath(".//fieldset[contains(@class, \"button-section\")]/button[4]"));
-                        deleteButton.click();
+                    WebElement deleteButton = theForm.findElement(By.xpath(".//fieldset[contains(@class, \"button-section\")]/button[4]"));
+                    deleteButton.click();
                 });
 
         Thread.sleep(5000);
